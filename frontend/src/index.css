@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ GmarketSans 폰트 불러오기 */
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('/src/assets/fonts/GmarketSansTTFLight.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('/src/assets/fonts/GmarketSansTTFMedium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('/src/assets/fonts/GmarketSansTTFBold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+/* ✅ 전역 스타일 */
+body {
+  font-family: 'GmarketSans', sans-serif;
+  @apply bg-black text-white m-0 min-h-screen;
+}
+
+/* ✅ 링크 스타일 */
+a {
+  @apply text-blue-400 hover:text-blue-300 font-medium no-underline;
+}
+
+/* ✅ 제목 스타일 */
+h1 {
+  @apply text-4xl font-semibold leading-tight;
+}
+
+/* ✅ 버튼 스타일 */
+button {
+  @apply rounded-lg border border-transparent px-4 py-2 text-base font-medium bg-zinc-800 hover:border-blue-400 transition focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
