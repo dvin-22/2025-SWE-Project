@@ -62,6 +62,11 @@ function ReservationFormPage({ user }) {
       return false;
     }
 
+    if (tableCapacity !== null && form.guestCount < 1) {
+      alert(`인원수가 잘못되었습니다. (1명 이상 입력)`);
+      return false;
+    }
+
     return true;
   };
 

@@ -17,7 +17,24 @@ function SignupPage() {
     });
   };
 
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      alert('이메일 형식이 잘못되었습니다. 예: xxxx@xxx.com');
+      return false;
+    }
+
+    if (form.password.length < 4) {
+    alert("비밀번호는 최소 4자리 이상이어야 합니다.");
+      return false;
+    }
+
+    return true;
+  };
+
   const handleSignup = async () => {
+    if (!validateForm()) return;
+
     const res = await fetch('/api/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -58,6 +75,7 @@ function SignupPage() {
           />
           <input
             name="email"
+            type="email"
             placeholder="이메일"
             onChange={handleChange}
             className="w-full p-2 rounded bg-[#0D121C] text-white border border-[#4D5761] placeholder-[#6C737F]"
@@ -67,6 +85,7 @@ function SignupPage() {
             type="password"
             placeholder="비밀번호"
             onChange={handleChange}
+            minLength={4}
             className="w-full p-2 rounded bg-[#0D121C] text-white border border-[#4D5761] placeholder-[#6C737F]"
           />
           <button
